@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component} from 'react';
+import Signup from "./components/Signup";
+import Login from "./components/Login";
+//import Application from "./components/Application";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+    isSignUp:false
+  }
+  this.signUp = this.signUp.bind(this);
+}
+  signUp () {
+    //event.preventDefault();
+    console.log("Here");
+    this.setState({isSignUp: !this.state.isSignUp});
+    console.log(this.state.isSignUp);
+    }
+  
+   componentDidMount() {
+      //Sasi = Storing token and userid
+      let loginInfo = JSON.parse(localStorage.getItem("loginInfo"));
+      console.log(loginInfo);
+    }
+  render() {
+    return (
+      <div className="main">
+            <div className="jumbotron"> Mortgage Application
+            <h6>Sign up now to get your mortgage approved!</h6></div>
+            {this.state.isSignUp ? 
+             <div className="login">
+              <Login/>
+              {/*<div style={{marginTop:"0px"}}>
+               New User? Signup
+              <button className="loginButton" onClick={this.signUp}> here </button>
+              </div> */}
+             </div>
+             :
+             <div className="signUp">
+              <Signup/>
+              <div style={{marginTop:"0px"}}>
+              Already have an account? <b>Login 
+              <button className="loginButton" onClick={this.signUp}> here </button></b>
+              </div>
+            </div>
+             }         
+           <div className="carousel">**********Carousel Planned************</div>  
+      </div>
+    )
+  }
 }
 
-export default App;
