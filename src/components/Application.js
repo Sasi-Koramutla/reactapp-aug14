@@ -66,8 +66,7 @@ export default class Application extends Component {
       getUser = () => {
         fetch(this.state.baseURL + "/mortgage/"+ this.props.loginUsername).then (res => res.json())
         .then (resJson => {console.log(resJson);
-          if(loginInfo)
-          this.setState({
+           this.setState({
             address: resJson.address,
             city: resJson.city,
             state: resJson.state,
@@ -96,6 +95,7 @@ export default class Application extends Component {
     componentDidMount() {
      this.getUser(); 
     let loginInfo = JSON.parse(localStorage.getItem("loginInfo"));
+    if(loginInfo)
     this.setState({address: loginInfo.address,
                     city: loginInfo.city,
                     state: loginInfo.state,
