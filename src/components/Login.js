@@ -67,7 +67,7 @@ export default class Login extends Component {
       return (
         <div>       
                     {this.state.isLogin?<div> <button className="btn btn-danger form-control" style={{marginLeft:"100px", width:"100px"}} onClick={this.logout}>Logout</button>
-                       <Application loginUsername={this.state.loginUsername}/> </div>:<ul className="nav justify-content-center">
+                       <Application loginUsername={this.state.loginUsername}/> </div>:<div><ul className="nav justify-content-center">
                     <li className="nav-item">
                       <input className="form-control" type="text" onChange={this.handleChange} value={this.state.loginUsername} id="loginUsername" name="loginUsername" placeholder="email (Username)"/>
                     </li>
@@ -77,7 +77,7 @@ export default class Login extends Component {
                     <li className="nav-item">    
                     <button className="btn btn-dark form-control" style={{marginLeft:"6px"}}onClick={this.login}>Login</button>
                     </li>
-                  </ul>}
+                  </ul></div>}
         </div>
       )
     }

@@ -49,9 +49,70 @@ code {
   font-weight: bold;
 }
 
-.carousel{
-  font-size: 20px;
+.btn:hover{
+  background-color: black;
+  color:peachpuff;
+}
+
+
+#prev {
+  cursor: pointer;
+  position: absolute;
+  top: 30%;
+  left:50px;
+  display: flex;
+  font-size: 30px;
+  background-color: peachpuff;
+  width:30px;
   text-align: center;
-  margin-bottom: 0;
-  margin-top: 100px;
+  padding-right: 10px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  border-radius: 20px 0px 0px 20px;
+  border: none;
+  }
+
+#next {
+  cursor: pointer;
+  position: absolute;
+  top: 30%;
+  right: 50px;
+  display: flex;
+  font-size: 30px;
+  background-color: peachpuff;
+  width:30px;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  border-radius: 0px 20px 20px 0px;
+  border: none;
+  }
+
+  #prev:hover, #next:hover{
+      background-color: black;
+      color: peachpuff;
+  }
+
+  .img-carousel{
+    width:80%;
+    height:auto;
+    animation-name: fade;
+    animation-duration: 3s;
+    margin:0px 50px;
+    }
+
+@keyframes fade {
+  from {opacity: .5}
+  to {opacity: 1}
+}
+
+.carousel{
+    width:50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin:auto;
+    margin-top:25px;
 }
