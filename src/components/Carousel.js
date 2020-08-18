@@ -9,7 +9,7 @@ var imageId = 1;
 export default class Carousel extends Component {
     state = {
         baseURL: baseURL,
-        img: Img2
+        img: Img1
       }
 
       nextClick = (event)=> {
