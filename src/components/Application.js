@@ -50,7 +50,9 @@ export default class Application extends Component {
               loanPurpose: resJson.loanPurpose,
               ssn: resJson.ssn
             }) 
-            localStorage.setItem("loginInfo",JSON.stringify({address: resJson.address,
+            localStorage.setItem("loginInfo",JSON.stringify({loginUsername: this.props.loginUsername,
+                                                             id:resJson.id,
+                                                            address: resJson.address,
                                                             city: resJson.city,
                                                             state: resJson.state,
                                                             zip: resJson.zip,
