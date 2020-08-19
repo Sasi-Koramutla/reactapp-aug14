@@ -108,7 +108,7 @@ export default class Application extends Component {
     render() {
       return (
         <div>
-            <form className="form justify-content-center" style={{width:"50%", margin:"50px"}} onSubmit={this.updateUser}>
+            <form className="form justify-content-center" style={{width:"80%", margin:"10px auto"}} onSubmit={this.updateUser}>
             <div className="form-group">
                   <input className="form-control" type="text" onChange={this.handleChange} value={this.state.address} placeholder="Property Address" id="address" name="address"/>
               </div>

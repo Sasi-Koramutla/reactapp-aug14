@@ -7,7 +7,8 @@ export default class Login extends Component {
         loginPassword: "",
         baseURL: baseURL,
         isLogin:false,
-        loginInfo:{}
+        loginInfo:{},
+        validated:false
       }
   
       handleChange = (event) => {
@@ -32,7 +33,8 @@ export default class Login extends Component {
             loginPassword: "",
             token:resJson.token,
             userid:resJson.id,
-            isLogin:true
+            isLogin:true,
+            validated:resJson.validated
         })
         localStorage.setItem("loginInfo",JSON.stringify({id:resJson.id, loginPassword: resJson.password, loginUsername:resJson.username, token:resJson.token, address: resJson.address,
                                                           city: resJson.city,
@@ -41,7 +43,8 @@ export default class Login extends Component {
                                                           description: resJson.description,
                                                           yearBuilt: resJson.yearBuilt,
                                                           loanPurpose: resJson.loanPurpose,
-                                                          ssn: resJson.ssn}));
+                                                          ssn: resJson.ssn,
+                                                        validated: resJson.validated}));
       }).catch (error => console.error({'Error': error}))
     
     }
@@ -65,19 +68,23 @@ export default class Login extends Component {
 
     render() {
       return (
-        <div>       
-                    {this.state.isLogin?<div> <button className="btn btn-danger form-control" style={{marginLeft:"100px", width:"100px"}} onClick={this.logout}>Logout</button>
-                       <Application loginUsername={this.state.loginUsername}/> </div>:<div><ul className="nav justify-content-center">
-                    <li className="nav-item">
-                      <input className="form-control" type="text" onChange={this.handleChange} value={this.state.loginUsername} id="loginUsername" name="loginUsername" placeholder="email (Username)"/>
-                    </li>
-                    <li className="nav-item">
-                        <input  className="form-control" type="password" onChange={this.handleChange} value={this.state.loginPassword} id="loginPassword" name="loginPassword" placeholder="Password"/>
-                    </li>
-                    <li className="nav-item">    
-                    <button className="btn btn-dark form-control" style={{marginLeft:"6px"}}onClick={this.login}>Login</button>
-                    </li>
-                  </ul></div>}
+        <div >       
+                    {this.state.isLogin?<div className="loginDiv"> <button className="btn btn-danger form-control" style={{margin:"10px auto", width:"100px"}} onClick={this.logout}>Logout</button>
+                       {this.state.validated? <div style={{color:"green", margin:"auto"}}><h4>email verified</h4></div>:<div style={{color:"red", margin:"10px auto"}}><h4>email not verified! Check your email for verification link</h4> </div>}
+                       <Application loginUsername={this.state.loginUsername}/> </div>:
+                    <div>
+                      <ul className="nav justify-content-center">
+                      <li className="nav-item">
+                        <input className="form-control" type="text" onChange={this.handleChange} value={this.state.loginUsername} id="loginUsername" name="loginUsername" placeholder="email (Username)"/>
+                      </li>
+                      <li className="nav-item">
+                          <input  className="form-control" type="password" onChange={this.handleChange} value={this.state.loginPassword} id="loginPassword" name="loginPassword" placeholder="Password"/>
+                      </li>
+                      <li className="nav-item">    
+                      <button className="btn btn-dark form-control" style={{marginLeft:"6px"}}onClick={this.login}>Login</button>
+                      </li>
+                    </ul>
+                  </div>}
         </div>
       )
     }

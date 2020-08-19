@@ -116,3 +116,12 @@ code {
     margin:auto;
     margin-top:25px;
 }
+
+.loginDiv{
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  width:90%;
+}
