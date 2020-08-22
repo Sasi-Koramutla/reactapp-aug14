@@ -144,9 +144,9 @@ export default class Login extends Component {
     render() {
       return (
         <div >       
-                    {this.state.isLogin?<div className="loginDiv"> <div className="actionDiv"> {this.state.view? <button className="btn btn-success form-control" style={{margin:"10px auto", width:"150px"}} onClick={this.edit}>Edit Profile</button> : <button className="btn form-control" style={{margin:"10px auto", width:"150px"}} onClick={this.view}>View Profile</button>}
-                                                                        <button className="btn btn-danger form-control" style={{margin:"10px auto", width:"150px"}} onClick={this.delete}>Delete Profile</button>
-                                                                        <button className="btn btn-dark form-control" style={{margin:"10px auto", width:"150px"}} onClick={this.logout}>Logout</button>
+                    {this.state.isLogin?<div className="loginDiv"> <div className="actionDiv"> {this.state.view? <button className="btn btn-success form-control" style={{margin:"5px", width:"150px"}} onClick={this.edit}>Edit Profile</button> : <button className="btn form-control" style={{margin:"5px", width:"150px"}} onClick={this.view}>View Profile</button>}
+                                                                        <button className="btn btn-danger form-control" style={{margin:"5px", width:"150px"}} onClick={this.delete}>Delete Profile</button>
+                                                                        <button className="btn btn-dark form-control" style={{margin:"5px", width:"150px"}} onClick={this.logout}>Logout</button>
                                                                         </div>
 
                        {this.state.validated? <div style={{color:"green", margin:"auto"}}><h4>email verified</h4></div>:<div style={{color:"red", margin:"10px auto"}}><h4>email not verified! Check your email for verification link</h4> </div>}

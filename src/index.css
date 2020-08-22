@@ -123,7 +123,7 @@ code {
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  width:90%;
+  width:100%;
 }
 
 .actionDiv{
@@ -131,6 +131,6 @@ code {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: center;
-  justify-content: center;
-  width:90%;
+  justify-content: space-between;
+  width:100%;
 }

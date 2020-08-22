@@ -11,7 +11,8 @@ export default class Application extends Component {
         yearBuilt: "",
         loanPurpose: "",
         ssn: "",
-        baseURL: baseURL
+        baseURL: baseURL,
+        update:true
       }
   
       handleChange = (event) => {
@@ -48,7 +49,8 @@ export default class Application extends Component {
               description: resJson.description,
               yearBuilt: resJson.yearBuilt,
               loanPurpose: resJson.loanPurpose,
-              ssn: resJson.ssn
+              ssn: resJson.ssn,
+              update:false
             }) 
             localStorage.setItem("loginInfo",JSON.stringify({loginUsername: this.props.loginUsername,
                                                              id:resJson.id,
@@ -109,7 +111,7 @@ export default class Application extends Component {
     }  
     render() {
       return (
-        <div>
+        <div>{this.state.update? 
             <form className="form justify-content-center" style={{width:"80%", margin:"10px auto"}} onSubmit={this.updateUser}>
             <div className="form-group">
                   <input className="form-control" type="text" onChange={this.handleChange} value={this.state.address} placeholder="Property Address" id="address" name="address"/>
@@ -136,9 +138,9 @@ export default class Application extends Component {
                   <input className="form-control" type="password" onChange={this.handleChange} value={this.state.ssn} id="ssn" name="ssn" placeholder="Borrower's SSN"/>
               </div>
               <div className="form-group">
-                  <input className="btn btn-success form-control" style={{width:"70%"}} type="submit" value="Update"/>
+                  <input className="btn btn-success form-control" style={{width:"70%", marginLeft:"15%"}} type="submit" value="Update"/>
               </div>  
-            </form>
+            </form>: <div><h4>Updated!</h4></div>}
         </div>
       )
     }
