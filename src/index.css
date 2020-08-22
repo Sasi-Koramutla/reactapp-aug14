@@ -125,3 +125,12 @@ code {
   justify-content: center;
   width:90%;
 }
+
+.actionDiv{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  width:90%;
+}
